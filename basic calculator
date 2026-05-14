@@ -1,0 +1,105 @@
+import math
+print("Type 'Help' for available commands.")
+counter = 0
+def clearfunc():
+    global counter
+    while counter < 40:
+        print("")
+        counter += 1
+while True:
+    try:
+        function = input("Enter function: ")
+        if function == "Add" or function == "add":
+            try:
+                addnum1 = float(input("Enter 1st number: "))
+                addnum2 = float(input("Enter 2nd number: "))
+                addtotal = addnum1 + addnum2
+                print(str(addnum1) + " + " + str(addnum2) + " = " + str(addtotal))
+            except ValueError:
+                print("Numbers only!")
+        elif function == "Subtract" or function == "subtract":
+            try:
+                subnum1 = float(input("Enter 1st number: "))
+                subnum2 = float(input("Enter 2nd number: "))
+                subtotal = subnum1 - subnum2
+                print(str(subnum1) + " - " + str(subnum2) + " = " + str(subtotal))
+            except ValueError:
+                print("Numbers only!")
+        elif function == "Multiply" or function == "multiply":
+            try:
+                mulnum1 = float(input("Enter 1st number: "))
+                mulnum2 = float(input("Enter 2nd number: "))
+                multotal = mulnum1 * mulnum2
+                print(str(mulnum1) + " * " + str(mulnum2) + " = " + str(multotal))
+            except ValueError:
+                print("Numbers only!")
+        elif function == "Divide" or function == "divide":
+            try:
+                divnum1 = float(input("Enter 1st number: "))
+                divnum2 = float(input("Enter 2nd number: "))
+                divtotal = divnum1 / divnum2
+                print(str(divnum1) + " / " + str(divnum2) + " = " + str(divtotal))
+            except ValueError:
+                print("Numbers only!")
+            except ZeroDivisionError:
+                print("You cannot divide by zero!")
+        elif function == "Clear" or function == "clear":
+            try:
+                clearfunc()
+                counter = 0
+            except NameError:
+                print("An unexpected error occured.")
+        elif function == "Powers" or function == "powers":
+            try:
+                pownum1 = float(input("Enter base number: "))
+                pownum2 = float(input("Enter power: "))
+                powtotal = pownum1 ** pownum2
+                print(str(pownum1) + " ^ " + str(pownum2) + " = " + str(powtotal))
+            except ValueError:
+                print("Numbers only!")
+        elif function == "Help" or function == "help":
+            print("Available commands:")
+            print("")
+            print("Add - Usage: To add two numbers together.")
+            print("Subtract - Usage: To subtract two numbers together.")
+            print("Multiply - Usage: To multiply two numbers together.")
+            print("Divide - Usage: To divide two numbers.")
+            print("Powers - Usage: To get the power of a number.")
+            print("Square Root - Usage: To get the square root of a number.")
+            print("Clear - Usage: Clear the terminal.")
+            print("Quadratic Formula - Usage: To solve an equation using the quadratic formula.")
+            print("Quadratic Formula Help - Usage: To explain the variables needed for the formula.")
+        elif function == "Square Root" or function == "square root":
+            try:
+                sqrnum1 = float(input("Enter number to square: "))
+                sqrtotal = math.sqrt(sqrnum1)
+                print("The square root of " + str(sqrnum1) + " is " + str(sqrtotal))
+            except ValueError:
+                print("Numbers only!")
+        elif function == "Quadratic Formula" or function == "quadratic formula":
+            try:
+                print("Type 'quadratic formula help' for information on the main screen if needed.")
+                quaA = float(input("Enter A value: "))
+                quaB = float(input("Enter B value: "))
+                quaC = float(input("Enter C value: "))
+                bottom = 2 * quaA #2a
+                segment1 = 4 * quaA * quaC #4ac
+                segment2 = quaB ** 2 #b^2
+                segment3 = quaB * -1 #-b
+                segment4 = segment2 - segment1 #sqr root
+                print("The answer is " + str(segment3) + " plus or minus the square root of " + str(segment4) + " divided by " + str(bottom) + ".")
+            except ValueError:
+                print("Numbers only!")
+        elif function == "Quadratic Formula Help" or function == "quadratic formula help":
+            print("")
+            print("You need the variables a, b, and c.")
+            print("Example: x^2 + 10x - 5")
+            print("a = 1 (1 * x)")
+            print("b = 10 (10 * x)")
+            print("c = -5 (-5)")
+        else:
+            print("")
+            print("Enter valid commands only.")
+        print("")
+    except ValueError:
+        print("Enter valid commands only.")
